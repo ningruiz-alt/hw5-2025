@@ -3,32 +3,32 @@ var video;
 window.addEventListener("load", function() {
 	console.log("Good job opening the window")
 
-	video = this.document.getElementById("player1")
+	video = document.getElementById("player1")
 	video.autoplay = false;
 	video.loop = false;
 
 	video.pause()
 	video.currentTime = 0;
 
-	const volumeSpan = this.document.getElementById("volume");
-	const slider = this.document.getElementById("slider");
-	const muteButton = this.document.getElementById("mute")
+	const volumeSpan =document.getElementById("volume");
+	const slider = document.getElementById("slider");
+	const muteButton = document.getElementById("mute")
 
 	video.volume = slider.value / 100;
-	volumeSpan.textContent = slider.value + "%";
+	volumeSpan.textContent = "";
 
-	this.document.getElementById("play").addEventListener("click", function(){
+	document.getElementById("play").addEventListener("click", function(){
 		console.log("play video");
 		video.play();
 		volumeSpan.textContent = Math.round(video.volume * 100) + "%";
 	});
 
-	this.document.getElementById("slower").addEventListener("click", function(){
+	document.getElementById("slower").addEventListener("click", function(){
 		video.playbackRate *= 0.9;
 		console.log("New speed (slower):", video.playbackRate);
 	});
 
-	this.document.getElementById("skip").addEventListener("click", function(){
+	document.getElementById("skip").addEventListener("click", function(){
 		console.log("Current location:", video.currentTime);
 		if(video.currentTime + 10 >= video.duration) {
 			video.currentTime = 0;
@@ -52,22 +52,22 @@ window.addEventListener("load", function() {
 		console.log("Volume:", video.volume);
 	})
 
-	this.document.getElementById("vintage").addEventListener("click", function(){
-		video.classList.add("oldschool");
+	document.getElementById("vintage").addEventListener("click", function(){
+		video.classList.add("oldSchool");
 		console.log("Old school style applied")
 	});
 
-	this.document.getElementById("orig").addEventListener("click", function(){
-		video.classList.remove("oldschool");
+	document.getElementById("orig").addEventListener("click", function(){
+		video.classList.remove("oldSchool");
 		console.log("Old school style removed")
 	});
 
-	this.document.getElementById("pause").addEventListener("click", function(){
+	document.getElementById("pause").addEventListener("click", function(){
 		console.log("Pause Video");
 		video.pause();
 	});
 
-	this.document.getElementById("faster").addEventListener("click", function(){
+	document.getElementById("faster").addEventListener("click", function(){
 		video.playbackRate /= 0.9;
 		console.log("New speed", video.playbackRate);
 	})
